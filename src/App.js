@@ -4,6 +4,8 @@ import './App.css';
 import  Header from './Components/Header/Header';
 import Item from './Components/Item/Item';
 import Lunch from './Components/Lunch/Lunch';
+import Breakfast from './Components/Breakfast/Breakfast';
+import Dinner from './Components/Dinner/Dinner';
 
 import {
   BrowserRouter as Router,
@@ -11,22 +13,40 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Breakfast from './Components/Breakfast/Breakfast';
+import NotFound from './Components/NotFound/NotFound';
+import Details from './Components/Details/Details';
+import MenuBar from './Components/MenuBar/Menubar';
+
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
       <Router>
+        <Switch>
         <Route path='/lunch'>
+        <MenuBar></MenuBar>
         <Lunch></Lunch>
         </Route>
         <Route path='/breakfast'>
+        <MenuBar></MenuBar>
           <Breakfast></Breakfast>
         </Route>
+        <Route path='/dinner'>
+        <MenuBar></MenuBar>
+          <Dinner></Dinner>
+        </Route>
         <Route exact path='/'>
+        <Header></Header>
+        <MenuBar></MenuBar>
         <Item></Item>
         </Route>
+        <Route path='/food/:key'>
+            <Details></Details>
+        </Route>
+        <Route path='*'>
+          <NotFound></NotFound>
+        </Route>
+        </Switch>
       </Router>  
 
     </div>

@@ -5,25 +5,26 @@ import { useState } from 'react';
 import Food from '../Food/Food';
 import Lunch from '../Lunch/Lunch';
 import { Link } from 'react-router-dom';
+import Dinner from '../Dinner/Dinner';
 
 const Item = () => {
     // console.log(fakeData);
     const [item,setItem]=useState(fakeData);
+    const handleDetails=(item)=>{
+        console.log('details here', item);
+    }
 
     return (
     <div className="container row d-flex row justify-content-around">
-            <div className="link">
             
-
-                <Link to="/breakfast">  BreakFast </Link>
-                <Link to="/lunch">  Lunch </Link>
-                <Link to="/dinner"> Dinner </Link> 
-            </div>
-
         {
-            item.map(item=><Food food={item}></Food>)
+            item.map(item=><Food 
+                showButton={true}
+                handleDetails={handleDetails}
+                food={item}></Food>)
 
         }
+        
         
     </div>   
     );
