@@ -2,11 +2,12 @@ import React from 'react';
 import logo from '../../images/logo2.png';
 import background from '../../images/bannerbackground.png';
 import './Header.css'
+// import src from '*.bmp';
 
 const Header = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-sm bg-white navbar-white">
+      <nav className="navbar navbar-expand-sm bg-white navbar-white sticky-top">
 
         <a className="navbar-brand" href="/">
           <img className="imgHead" src={logo} alt=""></img> 
@@ -22,10 +23,19 @@ const Header = () => {
 
         </ul>
       </nav>
-      <div>
+      <div className="banner d-flex flex-column">
 
-        <img src={background} alt="" className="fit" >
-        </img>
+        <h1>Best Food Waiting For Your Belly</h1>
+        <br/>
+        <div className="d-flex justify-content-center form">
+
+        <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+        </div>
+
       </div>
     </div>
 

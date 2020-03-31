@@ -16,6 +16,8 @@ import {
 import NotFound from './Components/NotFound/NotFound';
 import Details from './Components/Details/Details';
 import MenuBar from './Components/MenuBar/Menubar';
+import Cart from './Components/Cart/Cart';
+import Login from './Components/Login/Login';
 
 
 function App() {
@@ -41,7 +43,14 @@ function App() {
         <Item></Item>
         </Route>
         <Route path='/food/:key'>
+          <MenuBar></MenuBar>
             <Details></Details>
+        </Route>
+        <Route path='/login'>
+          <Login></Login>
+        </Route>
+        <Route path="/cart">
+          <Cart></Cart>
         </Route>
         <Route path='*'>
           <NotFound></NotFound>

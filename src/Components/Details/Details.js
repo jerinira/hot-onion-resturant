@@ -2,6 +2,7 @@ import React from 'react';
 import './Details.css';
 import buttonLogo from '../../ICON/Path1.png'
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import fakeData from '../../fakeData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +10,20 @@ import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 const Details = () => {
     const {key}=useParams();
     const foodDetails= fakeData.find(fd=>fd.key === key);
-    console.log(foodDetails);
+    const [count, setCount]= useState(1);
+    const add=()=>{
+      const newCount = count +1;
+       return setCount(newCount);
+    }
+    const sub=()=>{
+      const newCount = count-1 ;
+      newCount >0 ? setCount(newCount): setCount(1);
+      
+      //  return setCount(newCount);
+    }
+
+    const price= (foodDetails.price * count).toFixed(2);
+
     return (
         <div className="d-flex justify-content-center">
 <div className="details" style={{maxWidth:'800px'}}>
@@ -18,15 +32,16 @@ const Details = () => {
       <div class="card-body">
         <h2 class="card-title">{foodDetails.food_name}</h2>
             <p class="card-text">{foodDetails.about}</p>
-            <h3>$ {foodDetails.price}</h3>
+            <h3>$ {price}</h3>
             <br/>
-            <button> <FontAwesomeIcon icon={faMinus} />
+            <button className="icon-button" onClick={sub}> <FontAwesomeIcon icon={faMinus} />
             </button>
-                <input type="text" value='1'/>
+                <input type='digit' className="input" value={count}/>
                 
-                <button><FontAwesomeIcon icon={faPlus} /></button>
+                <button className="icon-button" onClick= {add}><FontAwesomeIcon icon={faPlus} /></button>
                 <br/> <br/>
-                <button className="btn btn-danger"> <img src={buttonLogo} alt=""/> </button>
+                <button className="add-button"> <img src={buttonLogo} alt=""/> Add Cart </button>
+                <br/>
 
       </div>
     </div>
