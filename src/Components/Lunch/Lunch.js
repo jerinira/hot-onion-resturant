@@ -21,8 +21,9 @@ const Lunch = () => {
                         <h5 className="card-title">{food.food_name}</h5> 
                             <p className="card-text">{food.title}</p>
                             <h5>$ {food.price}</h5>
-                            <button type="button" className="btn btn-outline-success">
-                            <Link to={'/food/'+food.key}>See Details</Link></button>
+                            <Link to={'/food/'+food.key} style={{textDecoration:'none', color:'inherit'}}>
+                            <button type="button" className="btn btn-success">See Details</button>
+                            </Link>
                     </div>
                 </div> 
             )}

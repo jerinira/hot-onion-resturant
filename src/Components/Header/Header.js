@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from '../../images/logo2.png';
-import background from '../../images/bannerbackground.png';
 import './Header.css'
-// import src from '*.bmp';
+import { useAuth } from '../Login/useAuth';
 
 const Header = () => {
+  const auth =useAuth();
+  console.log(auth);
   return (
     <div>
       <nav className="navbar navbar-expand-sm bg-white navbar-white sticky-top">
@@ -14,24 +15,31 @@ const Header = () => {
         </a>
 
         <ul className="navbar-nav justify-content-right">
+         { auth.user ? 
+         <li className="nav-item">  
+         <a className="nav-link" href="/" onClick={auth.signOut}> Sign Out </a> 
+          </li> 
+          :
           <li className="nav-item">
-            <a className="nav-link" href="/login">Login</a>
+            <a className="nav-link" href="/login" >Login</a>
           </li>
+          }
+
           <li className="nav-item">
-            <a className="nav-link" href="/signup">Sign Up</a>
+            <a className="nav-link" href="/login" >Sign Up</a>
           </li>
 
         </ul>
       </nav>
       <div className="banner d-flex flex-column">
 
-        <h1>Best Food Waiting For Your Belly</h1>
+        <h1 className=' d-flex justify-content-center'>Best Food Waiting For Your Belly</h1>
         <br/>
         <div className="d-flex justify-content-center form">
 
-        <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form className="form-inline justify-content-center">
+    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+    <button className="btn  my-2 my-sm-0" style={{backgroundColor: 'crimson'}} type="submit">Search</button>
   </form>
 
         </div>

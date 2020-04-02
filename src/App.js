@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import  Header from './Components/Header/Header';
@@ -6,6 +6,13 @@ import Item from './Components/Item/Item';
 import Lunch from './Components/Lunch/Lunch';
 import Breakfast from './Components/Breakfast/Breakfast';
 import Dinner from './Components/Dinner/Dinner';
+import NotFound from './Components/NotFound/NotFound';
+import Details from './Components/Details/Details';
+import MenuBar from './Components/MenuBar/Menubar';
+import Cart from './Components/Cart/Cart';
+import Login from './Components/Login/Login';
+import OrderComplete from './Components/OrderComplete/OrderComplete';
+
 
 import {
   BrowserRouter as Router,
@@ -13,16 +20,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import NotFound from './Components/NotFound/NotFound';
-import Details from './Components/Details/Details';
-import MenuBar from './Components/MenuBar/Menubar';
-import Cart from './Components/Cart/Cart';
-import Login from './Components/Login/Login';
+import { AuthContextProvider } from './Components/Login/useAuth';
 
+export const UserContext = createContext();
 
 function App() {
   return (
     <div className="App">
+      <AuthContextProvider>
       <Router>
         <Switch>
         <Route path='/lunch'>
@@ -37,10 +42,14 @@ function App() {
         <MenuBar></MenuBar>
           <Dinner></Dinner>
         </Route>
+        <Route path='/order'>
+        <MenuBar></MenuBar>
+          <OrderComplete></OrderComplete>
+        </Route>
         <Route exact path='/'>
         <Header></Header>
         <MenuBar></MenuBar>
-        <Item></Item>
+        <Lunch></Lunch>
         </Route>
         <Route path='/food/:key'>
           <MenuBar></MenuBar>
@@ -57,7 +66,7 @@ function App() {
         </Route>
         </Switch>
       </Router>  
-
+      </AuthContextProvider>
     </div>
   );
 }

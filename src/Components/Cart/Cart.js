@@ -1,10 +1,13 @@
 import React from 'react';
+import '../Details/Details'
 import './Cart.css';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
+
     return (
         <div className="d-flex justify-content-start">
-            <div class="container cart-form">
+            <div className="container cart-form">
             
   <form>
   <h3 className="heading">Edit delivery Details</h3>
@@ -23,7 +26,8 @@ const Cart = () => {
      <h5>Sub-total:</h5>
      <h5>Tax:</h5>
      <h5>Delivery fee:</h5>
-     <input id="save" type="submit" value="Place Order"></input>
+     <Link to='/order' style={{textDecoration:'none', color:'inherit'}}>
+     <input id="save" type="submit" value="Place Order"></input></Link>
 
  </div>
             

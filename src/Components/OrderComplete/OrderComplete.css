@@ -1,0 +1,17 @@
+.user{
+    margin-right: 40px;
+    background-color: #ccc;
+    border-radius: 15px;
+}
+.user-image{
+    margin: 40px 10px;
+}
+.map img{
+    height: 100%;
+    width: 60%;
+
+}
+.map{
+    margin: 20px 10px;
+    
+}

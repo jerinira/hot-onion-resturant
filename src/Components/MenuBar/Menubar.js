@@ -1,4 +1,5 @@
 import React from 'react';
+import './Menubar.css';
 import { Link } from 'react-router-dom';
 
 const Menubar = () => {
@@ -7,8 +8,8 @@ const Menubar = () => {
             <div className="link">
             
             <b> <h5>
-            <Link to="/breakfast" className='text-danger'>  Breakfast </Link>
-            <Link to="/lunch" className='text-danger'>  Lunch </Link>
+            <Link to="/breakfast" className='text-danger active'>  Breakfast </Link>
+            <Link to="/lunch" className='text-danger active'>  Lunch </Link>
             <Link to="/dinner" className='text-danger'> Dinner </Link> </h5> </b> 
         </div>
         

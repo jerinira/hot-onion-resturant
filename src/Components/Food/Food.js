@@ -9,7 +9,7 @@ const Food = (props) => {
         <div className="container">
     
         <div className="row d-flex justify-content-around">
-                <div className="card lunch col-mb-4">                       
+                <div className="card lunch col-sm-4">                       
                            <img src={image} className="food-img" alt=""/>                      
                         <div className="card-body">
                         <h5 className="card-title">{food_name}</h5> 
@@ -18,7 +18,7 @@ const Food = (props) => {
                             {/* <button type="button" 
                            onClick={()=>props.handleDetails(props.food)} className="btn btn-success">See Details...</button> */}
                            { props.showButton &&
-                               <button type="button" className="btn btn-outline-secondary btn1"><Link to={'/food/'+key}>See Details</Link></button>}
+         <button type="button" className="btn btn-outline-secondary btn1"><Link to={'/food/'+key}>See Details</Link></button>}
                     </div>
                 </div> 
         
