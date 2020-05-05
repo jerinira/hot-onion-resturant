@@ -3,7 +3,6 @@ import './Food.css'
 import { Link } from 'react-router-dom';
 
 const Food = (props) => {
-    // console.log(props.food);
     const {image,food_name,title,price,key}= props.food;
     return (
         <div className="container">

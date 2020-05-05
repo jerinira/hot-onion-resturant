@@ -2,7 +2,6 @@ import React, { createContext } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import  Header from './Components/Header/Header';
-import Item from './Components/Item/Item';
 import Lunch from './Components/Lunch/Lunch';
 import Breakfast from './Components/Breakfast/Breakfast';
 import Dinner from './Components/Dinner/Dinner';
@@ -17,11 +16,9 @@ import OrderComplete from './Components/OrderComplete/OrderComplete';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { AuthContextProvider } from './Components/Login/useAuth';
-
 export const UserContext = createContext();
 
 function App() {

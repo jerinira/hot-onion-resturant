@@ -6,7 +6,6 @@ import Food from '../Food/Food';
 
 
 const Item = () => {
-    // console.log(fakeData);
     const [item,setItem]=useState(fakeData);
     const handleDetails=(item)=>{
         console.log('details here', item);

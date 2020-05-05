@@ -2,12 +2,23 @@ import React from 'react';
 import '../Details/Details'
 import './Cart.css';
 import { Link } from 'react-router-dom';
-
+import { useState,useEffect} from 'react';
 const Cart = () => {
 
+    const[cart,setCart]=useState([]);
+
+    useEffect(()=>{
+        fetch('https://morning-harbor-96274.herokuapp.comcart')
+        .then(res=>res.json())
+        .then(data=>{
+           setCart(data);
+           console.log(cart);
+        })
+    } ,[])
+   
     return (
         <div className="d-flex justify-content-start">
-            <div className="container cart-form">
+           <div className="container cart-form">
             
   <form>
   <h3 className="heading">Edit delivery Details</h3>
@@ -18,7 +29,8 @@ const Cart = () => {
     
     <input type="text" id="lname" name="lastname" placeholder="Flat No."/>
     <br/>
-    <input type="submit" value="Save & Continue"></input>
+    <input type="submit" value="Save & Continue"></input>  
+
   </form>
 </div>
  <div className="review">
@@ -27,12 +39,13 @@ const Cart = () => {
      <h5>Tax:</h5>
      <h5>Delivery fee:</h5>
      <Link to='/order' style={{textDecoration:'none', color:'inherit'}}>
-     <input id="save" type="submit" value="Place Order"></input></Link>
+     <input id="save" type="submit" value="Place Order">
+         </input></Link>
 
  </div>
             
     </div>
     );
-};
+}
 
 export default Cart;

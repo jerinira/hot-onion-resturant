@@ -1,14 +1,27 @@
 import React from 'react';
-import fakeData from '../../fakeData';
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 const Dinner = () => {
-     const dinnerItem= fakeData.filter(item=>{
-         return item.category==='dinner';
-     });
-    const[dinner,setDinner]= useState(dinnerItem);
-    //  console.log(dinner.length);
+    //  const dinnerItem= fakeData.filter(item=>{
+    //      return item.category==='dinner';
+    //  });
+    // const[dinner,setDinner]= useState(dinnerItem);
+    // //  console.log(dinner.length);
+
+    const[food,setFood]=useState([]);
+
+    useEffect(()=>{
+        fetch('https://morning-harbor-96274.herokuapp.com/foods')
+        .then(res=>res.json())
+        .then(data=>{
+           setFood(data);
+        })
+    } ,[])
+    const dinner=food.filter(item=>{
+       return item.category==='dinner';
+   })
+
     return (
         <div className="container">
                 <div className="row d-flex justify-content-around">

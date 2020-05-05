@@ -1,14 +1,27 @@
 import React from 'react';
-import fakeData from '../../fakeData';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Breakfast = () => {
 
-     const bfast= fakeData.filter(breakfast=>{
-         return breakfast.category==='breakfast';        
-     });
-     const[breakfast,setBreakfast]= useState(bfast);
+    //  const bfast= fakeData.filter(breakfast=>{
+    //      return breakfast.category==='breakfast';        
+    //  });
+    //  const[breakfast,setBreakfast]= useState(bfast);
+
+     const[food,setFood]=useState([]);
+
+     useEffect(()=>{
+         fetch('https://morning-harbor-96274.herokuapp.com/foods')
+         .then(res=>res.json())
+         .then(data=>{
+            console.log(data);
+            setFood(data);
+         })
+     } ,[])
+     const breakfast=food.filter(item=>{
+        return item.category==='breakfast';
+    })
     return (
         <div>
             <div className="container">

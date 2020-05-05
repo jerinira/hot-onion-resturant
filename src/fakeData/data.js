@@ -21,7 +21,7 @@ import dinner6 from './Dinner/dinner6.png';
 
 
 
-const fakeData=[
+const data=[
 {
     "key": '1',
     "price": 15.80,
@@ -186,4 +186,4 @@ const fakeData=[
   }
 
 ];
-export default fakeData;
+export default data;
